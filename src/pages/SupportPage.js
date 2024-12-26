@@ -1,9 +1,12 @@
-import React from 'react';
-import CustomerSupport from '../components/CustomerSupport';
+import React from "react";
+import ContactForm from "../components/ContactForm";
 
 const SupportPage = () => {
-  return <CustomerSupport />;
+  return (
+    <div>
+      <ContactForm />
+    </div>
+  );
 };
 
 export default SupportPage;
-
