@@ -1,10 +1,11 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from "react";
 
-export const AppContext = createContext();
+export const AppContext = createContext(); 
 
 export const AppProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [cart, setCart] = useState([]);
+  const storedUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+  const [user, setUser] = useState(storedUser); 
+  const [cart, setCart] = useState([]); 
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -30,12 +31,15 @@ export const AppProvider = ({ children }) => {
     );
   };
 
+  
+
   return (
     <AppContext.Provider
       value={{
         user,
         setUser,
         cart,
+        setCart,
         addToCart,
         removeFromCart,
         updateCartQuantity,
@@ -45,16 +49,3 @@ export const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
-// import React, { createContext, useState } from 'react';
-
-// export const AppContext = createContext();
-
-// export const AppProvider = ({ children }) => {
-//   const [user, setUser] = useState({ name: 'John Doe' });
-//   return (
-//     <AppContext.Provider value={{ user, setUser }}>
-//       {children}
-//     </AppContext.Provider>
-//   );
-// };

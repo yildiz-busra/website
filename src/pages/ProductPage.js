@@ -1,12 +1,34 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import ProductDetails from '../components/ProductDetails';
+import React from "react";
+import { useParams } from "react-router-dom";
+import ProductDetails from "../components/ProductDetails";
 
 const sampleProducts = [
-  { id: 1, name: 'Product 1', price: 10, image: '/images/product1.jpg', description: 'Description of Product 1' },
-  { id: 2, name: 'Product 2', price: 20, image: '/images/product2.jpg', description: 'Description of Product 2' },
-  { id: 3, name: 'Product 3', price: 30, image: '/images/product3.jpg', description: 'Description of Product 3' },
+  {
+    id: 1,
+    name: "Product 1",
+    price: 10,
+    image: "https://picsum.photos/300/200?random=1",
+    description: "Description of Product 1",
+    reviews: ["Great product!", "Loved it!"],
+  },
+  {
+    id: 2,
+    name: "Product 2",
+    price: 20,
+    image: "https://picsum.photos/300/200?random=2",
+    description: "Description of Product 2",
+    reviews: ["Good quality", "Worth the price"],
+  },
+  {
+    id: 3,
+    name: "Product 3",
+    price: 30,
+    image: "https://picsum.photos/300/200?random=3",
+    description: "Description of Product 3",
+    reviews: ["Amazing product!", "Highly recommend!"],
+  },
 ];
+
 
 const ProductPage = () => {
   const { id } = useParams();
